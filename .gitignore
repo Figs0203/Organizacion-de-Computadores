@@ -1,0 +1,30 @@
+# Ignorar archivos compilados de Java
+*.class
+
+# Ignorar archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos temporales y de respaldo
+*.log
+*.tmp
+*~
+*.swp
+
+# Ignorar imágenes y fotos
+*.jpg
+*.jpeg
+*.png
+*.gif
+
+# Ignorar carpetas típicas de IDEs (Eclipse, IntelliJ, etc)
+.idea/
+.vscode/
+*.iml
+out/
+bin/
+build/
+
+# Ignorar archivos generados por el sistema operativo
+ehthumbs.db
+Icon?
