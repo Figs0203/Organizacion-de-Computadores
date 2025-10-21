@@ -3,6 +3,6 @@
 javac *.java
 
 :: Ejecuta el traductor con el archivo SimpleAdd.vm
-java VMTranslator SimpleAdd.vm
+java VMTranslator Prueba.vm
 
 pause
