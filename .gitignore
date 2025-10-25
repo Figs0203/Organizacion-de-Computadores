@@ -28,3 +28,8 @@ build/
 # Ignorar archivos generados por el sistema operativo
 ehthumbs.db
 Icon?
+
+# Resto
+*.vm
+*.asm
+/Prueba

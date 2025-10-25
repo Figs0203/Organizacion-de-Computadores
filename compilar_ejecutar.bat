@@ -1,8 +1,19 @@
 @echo off
-:: Compila todos los archivos .java
+echo Compilando archivos Java...
 javac *.java
+if errorlevel 1 (
+    echo ❌ Error en la compilación
+    pause
+    exit /b
+)
+echo ✅ Compilación exitosa.
 
-:: Ejecuta el traductor con el archivo SimpleAdd.vm
-java VMTranslator Prueba.vm
+echo.
+set /p ruta=Introduce la ruta del archivo .vm o carpeta a traducir: 
+
+echo Ejecutando el traductor...
+java VMTranslator "%ruta%"
+echo.
+echo ✅ Traducción completada.
 
 pause
