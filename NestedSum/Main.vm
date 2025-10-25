@@ -1,0 +1,76 @@
+// Main.computeSum: suma desde i=0 hasta n (incluido) (sum += i^2 + 1)
+function Main.computeSum 2
+// local 0 = sum, local 1 = i
+push constant 0
+pop local 0        // sum = 0
+push constant 0
+pop local 1        // i = 0
+
+label LOOP_START
+// Verificar si i > n (ya terminamos)
+push local 1
+push argument 0
+gt
+if-goto LOOP_END
+
+// Calcular i^2
+push local 1
+call Main.square 1
+
+// Sumar 1 usando Main.addOne
+call Main.addOne 1
+
+// Sumar al acumulador: sum = sum + (i^2 + 1)
+push local 0
+add
+pop local 0
+
+// Incrementar i usando Main.addOne
+push local 1
+call Main.addOne 1
+pop local 1
+
+goto LOOP_START
+
+label LOOP_END
+push local 0
+return
+ 
+// Main.square: calcula x*x usando sumas sucesivas (no recursiva)
+function Main.square 2
+// locals: local0 = counter, local1 = acc
+push argument 0
+pop local 0         // counter = arg0
+push constant 0
+pop local 1         // acc = 0
+
+label SQR_LOOP
+push local 0
+push constant 0
+eq
+if-goto SQR_END     // si counter == 0 terminar
+
+// acc = acc + argument0
+push local 1
+push argument 0
+add
+pop local 1
+
+// counter = counter - 1
+push local 0
+push constant 1
+sub
+pop local 0
+
+goto SQR_LOOP
+
+label SQR_END
+push local 1
+return
+
+// Main.addOne: devuelve x + 1 (simple)
+function Main.addOne 0
+push argument 0
+push constant 1
+add
+return
